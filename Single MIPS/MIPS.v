@@ -104,14 +104,14 @@ module SingleCycle_MIPS(
 // control unit
     assign RegDST[0] = (~IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (~IR[27]) & (~IR[26]);
     assign Jump = ((~IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (~IR[26])) | ((~IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (IR[26]));
-	assign Branch = (~IR[31]) & (~IR[30]) & (~IR[29]) & (IR[28]) & (~IR[27]) & (~IR[26]);
-	assign MemRead = (IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (IR[26]);
-	assign MemToReg[0] = (IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (IR[26]);
-	assign MemWrite = (IR[31]) & (~IR[30]) & (IR[29]) & (~IR[28]) & (IR[27]) & (IR[26]);
-	assign ALUSrc  = ((IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (IR[26])) | ((IR[31]) & (~IR[30]) & (IR[29]) & (~IR[28]) & (IR[27]) & (IR[26])); 
-	assign RegWrite = ((~IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (~IR[27]) & (~IR[26])) | ((IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (IR[26])) | ((~IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (IR[26]));
-	assign ALUOp[1] = ((~IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (~IR[27]) & (~IR[26]));
-	assign ALUOp[0] = ((~IR[31]) & (~IR[30]) & (~IR[29]) & (IR[28]) & (~IR[27]) & (~IR[26]));
+    assign Branch = (~IR[31]) & (~IR[30]) & (~IR[29]) & (IR[28]) & (~IR[27]) & (~IR[26]);
+    assign MemRead = (IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (IR[26]);
+    assign MemToReg[0] = (IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (IR[26]);
+    assign MemWrite = (IR[31]) & (~IR[30]) & (IR[29]) & (~IR[28]) & (IR[27]) & (IR[26]);
+    assign ALUSrc  = ((IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (IR[26])) | ((IR[31]) & (~IR[30]) & (IR[29]) & (~IR[28]) & (IR[27]) & (IR[26])); 
+    assign RegWrite = ((~IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (~IR[27]) & (~IR[26])) | ((IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (IR[26])) | ((~IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (IR[26]));
+    assign ALUOp[1] = ((~IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (~IR[27]) & (~IR[26]));
+    assign ALUOp[0] = ((~IR[31]) & (~IR[30]) & (~IR[29]) & (IR[28]) & (~IR[27]) & (~IR[26]));
     assign RegDST[1] = (~IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (IR[26]);
     assign MemToReg[1] = (~IR[31]) & (~IR[30]) & (~IR[29]) & (~IR[28]) & (IR[27]) & (IR[26]);
     assign CEN = (~MemWrite) & (~MemRead);
@@ -197,7 +197,7 @@ module SingleCycle_MIPS(
 //==== sequential part ====================================
 
 // pc
-	always@(posedge clk or negedge rst_n)
+    always@(posedge clk or negedge rst_n)
     begin
         if (rst_n == 1'b0)
         begin
@@ -205,12 +205,12 @@ module SingleCycle_MIPS(
         end
         else
         begin
-			IR_addr <= PCin;
+            IR_addr <= PCin;
         end
     end
 // register file
-	integer i;
-	always@(posedge clk or negedge rst_n)
+    integer i;
+    always@(posedge clk or negedge rst_n)
     begin
         if (rst_n == 1'b0) 
         begin
