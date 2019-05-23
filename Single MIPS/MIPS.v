@@ -119,10 +119,10 @@ module SingleCycle_MIPS(
     assign OEN = 0;
 
 // alu
-	assign ALUctrl[2] = ((ALUOp[0]) | (ALUOp[1] & IR[1]));
-	assign ALUctrl[1] = ((~ALUOp[1]) | (~IR[2]));
-	assign ALUctrl[0] = ((ALUOp[1]) & (IR[0] | IR[3]));
-	assign JRctrl = (ALUOp[1] & ~IR[5] & ~IR[4] & IR[3] & ~IR[2] & ~IR[1] & ~IR[0]);
+    assign ALUctrl[2] = ((ALUOp[0]) | (ALUOp[1] & IR[1]));
+    assign ALUctrl[1] = ((~ALUOp[1]) | (~IR[2]));
+    assign ALUctrl[0] = ((ALUOp[1]) & (IR[0] | IR[3]));
+    assign JRctrl = (ALUOp[1] & ~IR[5] & ~IR[4] & IR[3] & ~IR[2] & ~IR[1] & ~IR[0]);
     
 
     always@(*)
